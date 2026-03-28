@@ -7,37 +7,36 @@
   var EMAIL = "ykhamis81@gmail.com";
 
   var PORTFOLIO_IDS = [
-    "JOO05245_nedk7d",
-    "hero_wbr1qt",
-    "JOO03194",
-    "JOO03205",
-    "JOO03590",
-    "JOO03739",
-    "JOO03809",
-    "JOO03848",
-    "JOO05269",
-    "JOO_3873",
-    "JOO_3938",
-    "JOO_4690",
-    "JOO_4973",
-    "DSC01231",
-    "DSC01363",
-    "DSC02770",
-    "DSC02804",
-    "DSC02810",
-    "DSC02841",
-    "DSC02880",
-    "DSC02888",
-    "DSC02896",
-    "DSC03007",
-    "DSC06661",
-    "DSC07881",
-    "DSC07889",
-    "DSC07926",
-    "DSC09233",
-    "DSC09245",
-    "DSC09961",
-    "DSC09970"
+    "JOO_4973_c7xttn",
+    "JOO03809_blpqo7",
+    "JOO05269_ziez3m",
+    "JOO03590_bpnvnq",
+    "JOO_3938_icvagr",
+    "JOO03848_sbj26n",
+    "JOO03194_nbsltu",
+    "JOO03739_vdk1ph",
+    "JOO03205_btip0s",
+    "JOO_3873_pcld93",
+    "DSC09970_ixrqrv",
+    "JOO_4690_n47fia",
+    "DSC09245_mzekkp",
+    "DSC09961_mvoyrp",
+    "DSC07881_v7u0ty",
+    "DSC03007_rbgpt5",
+    "DSC09233_vudhtw",
+    "DSC02841_n2s5ba",
+    "4984_evohia",
+    "DSC01363_c6tdky",
+    "DSC02810_s8sqpl",
+    "1_bz4oww",
+    "DSC02880_p5itoz"
+  ];
+
+  var HERO_IDS = [
+    "JOO03194_nbsltu",
+    "JOO_4973_c7xttn",
+    "DSC09233_vudhtw",
+    "JOO03590_bpnvnq"
   ];
 
   function shuffle(arr) {
@@ -57,9 +56,8 @@
   function wireHeroRandom() {
     var hero = document.getElementById("hero-img");
     if (!hero) return;
-    var pool = shuffle(PORTFOLIO_IDS.slice());
-    var id = pool[0];
-    hero.src = cloudUrl(id, 1920);
+    var pool = shuffle(HERO_IDS.slice());
+    hero.src = cloudUrl(pool[0], 1920);
     hero.classList.remove("is-placeholder");
   }
 
@@ -84,24 +82,21 @@
   function wireProduct() {
     var el = document.getElementById("product-img");
     if (!el) return;
-    el.src = "https://res.cloudinary.com/" + CLOUD + "/image/upload/q_auto,f_auto/product-cover";
+    el.src = cloudUrl("product-cover_dowu6w", 640);
     el.onerror = function () { el.src = "assets/product-cover.png"; };
   }
 
   function wirePortrait() {
     var el = document.getElementById("portrait-img");
     if (!el) return;
-    el.src = "https://res.cloudinary.com/" + CLOUD + "/image/upload/q_auto,f_auto/portrait";
+    el.src = cloudUrl("5_sykhsx", 600);
     el.onerror = function () { el.src = "assets/5.JPG"; };
   }
 
   function wireLogos() {
-    var logoUrl = "https://res.cloudinary.com/" + CLOUD + "/image/upload/q_auto,f_auto/logo";
     document.querySelectorAll(".logo-img, .footer-logo-img").forEach(function (img) {
-      img.onerror = function () {
-        img.src = "assets/6.png";
-      };
-      img.src = logoUrl;
+      img.onerror = function () { img.src = "assets/6.png"; };
+      img.src = "assets/6.png";
     });
   }
 
