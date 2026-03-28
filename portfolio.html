@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — uozersif Studios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .portfolio-page { padding: 6rem 0 4rem; }
+      .portfolio-page-header { text-align: center; margin-bottom: 3rem; }
+      .back-link { display: inline-flex; align-items: center; gap: .5rem; font-size: .9rem; color: inherit; text-decoration: none; opacity: .6; margin-bottom: 2rem; transition: opacity .2s; }
+      .back-link:hover { opacity: 1; }
+      .portfolio-full-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+      .portfolio-full-grid .portfolio-item { margin: 0; aspect-ratio: 3/2; overflow: hidden; border-radius: 4px; }
+      .portfolio-full-grid .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+      .portfolio-full-grid .portfolio-item:hover img { transform: scale(1.04); }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" aria-label="uozersif home">
+          <img class="logo-img" src="assets/6.png" alt="uozersif" width="160" height="48" />
+        </a>
+        <nav class="nav" id="nav" aria-label="Primary">
+          <a href="index.html#portfolio">Portfolio</a>
+          <a href="index.html#product">POSELY</a>
+          <a href="index.html#booking">Book</a>
+          <a href="index.html#about">About</a>
+          <a class="nav-cta" href="index.html#contact">Contact</a>
+        </nav>
+        <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="portfolio-page">
+        <div class="container">
+          <a class="back-link" href="index.html">← Back to home</a>
+          <div class="portfolio-page-header">
+            <p class="section-tag">Portfolio</p>
+            <h1 class="section-headline">All work</h1>
+            <p class="portfolio-intro">Moments from real weddings — light, emotion, and the in-between.</p>
+          </div>
+          <div class="portfolio-full-grid" id="portfolio-full-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img class="footer-logo-img" src="assets/6.png" alt="" width="120" height="36" />
+        </div>
+        <p class="footer-line">Wedding photography &amp; media · POSELY</p>
+        <p class="footer-copy">© <span id="year"></span> uozersif Studios. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+    (function() {
+      var CLOUD = "dp83zpjpj";
+      var BASE = "https://res.cloudinary.com/" + CLOUD + "/image/upload/";
+      var LOGO_URL = BASE + "q_auto,f_auto/6_rpu4kl";
+
+      var PORTFOLIO_IDS = [
+        "JOO_4973_c7xttn","JOO03809_blpqo7","JOO05269_ziez3m",
+        "JOO03590_bpnvnq","JOO_3938_icvagr","JOO03848_sbj26n",
+        "JOO03194_nbsltu","JOO03739_vdk1ph","JOO03205_btip0s",
+        "JOO_3873_pcld93","DSC09970_ixrqrv","JOO_4690_n47fia",
+        "DSC09245_mzekkp","DSC09961_mvoyrp","DSC07881_v7u0ty",
+        "DSC03007_rbgpt5","DSC09233_vudhtw","DSC02841_n2s5ba",
+        "4984_evohia","DSC01363_c6tdky","DSC02810_s8sqpl",
+        "1_bz4oww","DSC02880_p5itoz"
+      ];
+
+      function cloudUrl(id, w) {
+        var t = w ? "w_" + w + ",c_fill,q_auto,f_auto/" : "q_auto,f_auto/";
+        return BASE + t + id;
+      }
+
+      var grid = document.getElementById("portfolio-full-grid");
+      PORTFOLIO_IDS.forEach(function(id) {
+        var fig = document.createElement("figure");
+        fig.className = "portfolio-item";
+        var img = document.createElement("img");
+        img.alt = "Wedding photography — uozersif Studios";
+        img.loading = "lazy";
+        img.decoding = "async";
+        img.src = cloudUrl(id, 800);
+        img.onerror = function() { fig.remove(); };
+        fig.appendChild(img);
+        grid.appendChild(fig);
+      });
+
+      document.querySelectorAll(".logo-img, .footer-logo-img").forEach(function(img) {
+        img.onerror = function() { img.src = "assets/6.png"; };
+        img.src = LOGO_URL;
+      });
+
+      var toggle = document.querySelector(".nav-toggle");
+      var nav = document.getElementById("nav");
+      if (toggle && nav) {
+        toggle.addEventListener("click", function() {
+          var open = nav.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+
+      document.querySelectorAll("#year").forEach(function(y) {
+        y.textContent = String(new Date().getFullYear());
+      });
+    })();
+    </script>
+  </body>
+</html>
