@@ -66,7 +66,7 @@
   function wirePortfolio() {
     var grid = document.getElementById("portfolio-grid");
     if (!grid) return;
-    var ids = shuffle(PORTFOLIO_IDS.slice());
+    var ids = shuffle(PORTFOLIO_IDS.slice()).slice(0, 3);
     ids.forEach(function (id) {
       var fig = document.createElement("figure");
       fig.className = "portfolio-item";
@@ -79,6 +79,10 @@
       fig.appendChild(img);
       grid.appendChild(fig);
     });
+    var btn = document.createElement("div");
+    btn.className = "portfolio-cta";
+    btn.innerHTML = '<a class="btn btn-dark" href="portfolio.html">See all work</a>';
+    grid.parentElement.appendChild(btn);
   }
 
   function wireProduct() {
