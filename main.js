@@ -39,6 +39,8 @@
     "JOO03590_bpnvnq"
   ];
 
+  var LOGO_URL = BASE + "q_auto,f_auto/6_rpu4kl";
+
   function shuffle(arr) {
     var a = arr.slice();
     for (var i = a.length - 1; i > 0; i--) {
@@ -96,7 +98,7 @@
   function wireLogos() {
     document.querySelectorAll(".logo-img, .footer-logo-img").forEach(function (img) {
       img.onerror = function () { img.src = "assets/6.png"; };
-      img.src = "assets/6.png";
+      img.src = LOGO_URL;
     });
   }
 
