@@ -3,41 +3,39 @@
 
   var WA_NUMBER = "201022632662";
   var EMAIL = "ykhamis81@gmail.com";
-  var CDN = "https://res.cloudinary.com/dp83zpjpj/image/upload/";
-
   var EXTRA_PORTFOLIO = [
-    CDN + "4564.jpg",
-    CDN + "4984.jpg",
-    CDN + "DSC01231.JPG",
-    CDN + "DSC01363.JPG",
-    CDN + "DSC02770.jpg",
-    CDN + "DSC02804.jpg",
-    CDN + "DSC02810.jpg",
-    CDN + "DSC02841.jpg",
-    CDN + "DSC02880.jpg",
-    CDN + "DSC02888.jpg",
-    CDN + "DSC02896.jpg",
-    CDN + "DSC03007.JPG",
-    CDN + "DSC06661.JPG",
-    CDN + "DSC07881.JPG",
-    CDN + "DSC07889.JPG",
-    CDN + "DSC07926.JPG",
-    CDN + "DSC09233.JPG",
-    CDN + "DSC09245.JPG",
-    CDN + "DSC09961.JPG",
-    CDN + "DSC09970.JPG",
-    CDN + "JOO03194.jpg",
-    CDN + "JOO03205.jpg",
-    CDN + "JOO03590.jpg",
-    CDN + "JOO03739.jpg",
-    CDN + "JOO03809.jpg",
-    CDN + "JOO03848.jpg",
-    CDN + "JOO05245.jpg",
-    CDN + "JOO05269.jpg",
-    CDN + "JOO_3873.jpg",
-    CDN + "JOO_3938.jpg",
-    CDN + "JOO_4690.jpg",
-    CDN + "JOO_4973.jpg",
+    "assets/4564.jpg",
+    "assets/4984.jpg",
+    "assets/DSC01231.JPG",
+    "assets/DSC01363.JPG",
+    "assets/DSC02770.jpg",
+    "assets/DSC02804.jpg",
+    "assets/DSC02810.jpg",
+    "assets/DSC02841.jpg",
+    "assets/DSC02880.jpg",
+    "assets/DSC02888.jpg",
+    "assets/DSC02896.jpg",
+    "assets/DSC03007.JPG",
+    "assets/DSC06661.JPG",
+    "assets/DSC07881.JPG",
+    "assets/DSC07889.JPG",
+    "assets/DSC07926.JPG",
+    "assets/DSC09233.JPG",
+    "assets/DSC09245.JPG",
+    "assets/DSC09961.JPG",
+    "assets/DSC09970.JPG",
+    "assets/JOO03194.jpg",
+    "assets/JOO03205.jpg",
+    "assets/JOO03590.jpg",
+    "assets/JOO03739.jpg",
+    "assets/JOO03809.jpg",
+    "assets/JOO03848.jpg",
+    "assets/JOO05245.jpg",
+    "assets/JOO05269.jpg",
+    "assets/JOO_3873.jpg",
+    "assets/JOO_3938.jpg",
+    "assets/JOO_4690.jpg",
+    "assets/JOO_4973.jpg",
   ];
 
   function portfolioIds() {
@@ -65,7 +63,7 @@
 
   function buildHeroCandidateUrls() {
     var urls = [];
-    urls.push(CDN + "hero.png", CDN + "hero.jpg", CDN + "1.png", CDN + "1.jpg");
+    urls.push("assets/hero.jpg", "assets/hero.png", "assets/1.jpg", "assets/1.png");
     portfolioIds().forEach(function (num) {
       EXT.forEach(function (ext) {
         urls.push(CDN + num + "." + ext);
@@ -86,12 +84,7 @@
 
     function tryNext() {
       if (i >= pool.length) {
-        chainImageFallback(hero, [
-          CDN + "hero.png",
-          CDN + "1.png",
-          CDN + "1.jpg",
-          CDN + "product-cover.png",
-        ]);
+        chainImageFallback(hero, ["assets/hero.jpg", "assets/1.jpg", "assets/product-cover.png"]);
         return;
       }
       var src = pool[i];
@@ -128,25 +121,19 @@
   }
 
   var PRODUCT_URLS = [
-    CDN + "product-cover.png",
-    CDN + "product-cover.jpg",
-    CDN + "product-cover.jpeg",
-    CDN + "product-cover.webp",
+    "assets/product-cover.png",
+    "assets/product-cover.jpg",
   ];
 
   var LOGO_URLS = [
-    CDN + "6.png",
-    CDN + "6.jpg",
-    CDN + "6.jpeg",
-    CDN + "6.webp",
+    "assets/6.png",
+    "assets/6.jpg",
   ];
 
   var PORTRAIT_URLS = [
-    CDN + "5.JPG",
-    CDN + "5.jpg",
-    CDN + "5.jpeg",
-    CDN + "5.png",
-    CDN + "5.webp",
+    "assets/5.JPG",
+    "assets/5.jpg",
+    "assets/5.png",
   ];
 
   function buildPortfolioSlots() {
