@@ -1,176 +1,81 @@
 (function () {
   "use strict";
-  var CDN = "assets/";
 
+  var CLOUD = "dp83zpjpj";
+  var BASE = "https://res.cloudinary.com/" + CLOUD + "/image/upload/";
   var WA_NUMBER = "201022632662";
   var EMAIL = "ykhamis81@gmail.com";
-  var EXTRA_PORTFOLIO = [
-    "assets/4564.jpg",
-    "assets/4984.jpg",
-    "assets/DSC01231.JPG",
-    "assets/DSC01363.JPG",
-    "assets/DSC02770.jpg",
-    "assets/DSC02804.jpg",
-    "assets/DSC02810.jpg",
-    "assets/DSC02841.jpg",
-    "assets/DSC02880.jpg",
-    "assets/DSC02888.jpg",
-    "assets/DSC02896.jpg",
-    "assets/DSC03007.JPG",
-    "assets/DSC06661.JPG",
-    "assets/DSC07881.JPG",
-    "assets/DSC07889.JPG",
-    "assets/DSC07926.JPG",
-    "assets/DSC09233.JPG",
-    "assets/DSC09245.JPG",
-    "assets/DSC09961.JPG",
-    "assets/DSC09970.JPG",
-    "assets/JOO03194.jpg",
-    "assets/JOO03205.jpg",
-    "assets/JOO03590.jpg",
-    "assets/JOO03739.jpg",
-    "assets/JOO03809.jpg",
-    "assets/JOO03848.jpg",
-    "assets/JOO05245.jpg",
-    "assets/JOO05269.jpg",
-    "assets/JOO_3873.jpg",
-    "assets/JOO_3938.jpg",
-    "assets/JOO_4690.jpg",
-    "assets/JOO_4973.jpg",
+
+  var PORTFOLIO_IDS = [
+    "JOO05245_nedk7d",
+    "hero_wbr1qt",
+    "JOO03194",
+    "JOO03205",
+    "JOO03590",
+    "JOO03739",
+    "JOO03809",
+    "JOO03848",
+    "JOO05269",
+    "JOO_3873",
+    "JOO_3938",
+    "JOO_4690",
+    "JOO_4973",
+    "DSC01231",
+    "DSC01363",
+    "DSC02770",
+    "DSC02804",
+    "DSC02810",
+    "DSC02841",
+    "DSC02880",
+    "DSC02888",
+    "DSC02896",
+    "DSC03007",
+    "DSC06661",
+    "DSC07881",
+    "DSC07889",
+    "DSC07926",
+    "DSC09233",
+    "DSC09245",
+    "DSC09961",
+    "DSC09970"
   ];
-
-  function portfolioIds() {
-    var out = [];
-    var n;
-    for (n = 1; n <= 20; n++) {
-      if (n === 5 || n === 6) continue;
-      out.push(n);
-    }
-    return out;
-  }
-
-  var EXT = ["png", "jpg", "jpeg", "webp"];
 
   function shuffle(arr) {
     var a = arr.slice();
     for (var i = a.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
-      var t = a[i];
-      a[i] = a[j];
-      a[j] = t;
+      var t = a[i]; a[i] = a[j]; a[j] = t;
     }
     return a;
   }
 
-  function buildHeroCandidateUrls() {
-    var urls = [];
-    urls.push("assets/hero.jpg", "assets/hero.png", "assets/1.jpg", "assets/1.png");
-    portfolioIds().forEach(function (num) {
-      EXT.forEach(function (ext) {
-        urls.push(CDN + num + "." + ext);
-      });
-    });
-    EXTRA_PORTFOLIO.forEach(function (u) {
-      urls.push(u);
-    });
-    return shuffle(urls);
+  function cloudUrl(id, w) {
+    var t = w ? "w_" + w + ",c_fill,q_auto,f_auto/" : "q_auto,f_auto/";
+    return BASE + t + id;
   }
 
   function wireHeroRandom() {
     var hero = document.getElementById("hero-img");
     if (!hero) return;
-
-    var pool = buildHeroCandidateUrls();
-    var i = 0;
-
-    function tryNext() {
-      if (i >= pool.length) {
-        chainImageFallback(hero, ["assets/hero.jpg", "assets/1.jpg", "assets/product-cover.png"]);
-        return;
-      }
-      var src = pool[i];
-      var probe = new Image();
-      probe.onload = function () {
-        hero.src = src;
-        hero.classList.remove("is-placeholder");
-      };
-      probe.onerror = function () {
-        i += 1;
-        tryNext();
-      };
-      probe.src = src;
-    }
-
-    tryNext();
-  }
-
-  function chainImageFallback(img, urls, onAllFail) {
-    if (!img || !urls.length) return;
-    var idx = 0;
-    function onErr() {
-      idx += 1;
-      if (idx >= urls.length) {
-        img.removeEventListener("error", onErr);
-        img.classList.add("is-placeholder");
-        if (onAllFail) onAllFail();
-        return;
-      }
-      img.src = urls[idx];
-    }
-    img.addEventListener("error", onErr);
-    img.src = urls[0];
-  }
-
-  var PRODUCT_URLS = [
-    "assets/product-cover.png",
-    "assets/product-cover.jpg",
-  ];
-
-  var LOGO_URLS = [
-    "assets/6.png",
-    "assets/6.jpg",
-  ];
-
-  var PORTRAIT_URLS = [
-    "assets/5.JPG",
-    "assets/5.jpg",
-    "assets/5.png",
-  ];
-
-  function buildPortfolioSlots() {
-    var slots = [];
-    portfolioIds().forEach(function (num) {
-      var base = CDN + num;
-      slots.push([base + ".png", base + ".jpg", base + ".jpeg", base + ".webp"]);
-    });
-    EXTRA_PORTFOLIO.forEach(function (path) {
-      slots.push([path]);
-    });
-    return slots;
+    var pool = shuffle(PORTFOLIO_IDS.slice());
+    var id = pool[0];
+    hero.src = cloudUrl(id, 1920);
+    hero.classList.remove("is-placeholder");
   }
 
   function wirePortfolio() {
     var grid = document.getElementById("portfolio-grid");
     if (!grid) return;
-    buildPortfolioSlots().forEach(function (urls) {
+    var ids = shuffle(PORTFOLIO_IDS.slice());
+    ids.forEach(function (id) {
       var fig = document.createElement("figure");
       fig.className = "portfolio-item";
       var img = document.createElement("img");
       img.alt = "Wedding photography — uozersif Studios";
       img.loading = "lazy";
       img.decoding = "async";
-      var j = 0;
-      function onErr() {
-        j += 1;
-        if (j >= urls.length) {
-          img.removeEventListener("error", onErr);
-          fig.remove();
-          return;
-        }
-        img.src = urls[j];
-      }
-      img.addEventListener("error", onErr);
-      img.src = urls[0];
+      img.src = cloudUrl(id, 800);
+      img.onerror = function () { fig.remove(); };
       fig.appendChild(img);
       grid.appendChild(fig);
     });
@@ -179,29 +84,24 @@
   function wireProduct() {
     var el = document.getElementById("product-img");
     if (!el) return;
-    chainImageFallback(el, PRODUCT_URLS);
+    el.src = "https://res.cloudinary.com/" + CLOUD + "/image/upload/q_auto,f_auto/product-cover";
+    el.onerror = function () { el.src = "assets/product-cover.png"; };
   }
 
   function wirePortrait() {
     var el = document.getElementById("portrait-img");
     if (!el) return;
-    chainImageFallback(el, PORTRAIT_URLS);
+    el.src = "https://res.cloudinary.com/" + CLOUD + "/image/upload/q_auto,f_auto/portrait";
+    el.onerror = function () { el.src = "assets/5.JPG"; };
   }
 
   function wireLogos() {
-    document.querySelectorAll(".logo-img").forEach(function (img) {
-      chainImageFallback(img, LOGO_URLS, function () {
-        img.style.display = "none";
-        var next = img.nextElementSibling;
-        if (next && next.classList.contains("logo-fallback")) next.hidden = false;
-      });
-    });
-    document.querySelectorAll(".footer-logo-img").forEach(function (img) {
-      chainImageFallback(img, LOGO_URLS, function () {
-        img.style.display = "none";
-        var next = img.nextElementSibling;
-        if (next && next.classList.contains("footer-logo-fallback")) next.hidden = false;
-      });
+    var logoUrl = "https://res.cloudinary.com/" + CLOUD + "/image/upload/q_auto,f_auto/logo";
+    document.querySelectorAll(".logo-img, .footer-logo-img").forEach(function (img) {
+      img.onerror = function () {
+        img.src = "assets/6.png";
+      };
+      img.src = logoUrl;
     });
   }
 
@@ -209,12 +109,10 @@
     var toggle = document.querySelector(".nav-toggle");
     var nav = document.getElementById("nav");
     if (!toggle || !nav) return;
-
     toggle.addEventListener("click", function () {
       var open = nav.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
-
     nav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
         nav.classList.remove("is-open");
@@ -265,8 +163,7 @@
     var err = validateBooking(data);
     if (err) { alert(err); return; }
     var subject = encodeURIComponent("Wedding booking — " + data.name);
-    window.location.href =
-      "mailto:" + EMAIL + "?subject=" + subject + "&body=" + encodeURIComponent(buildBookingBody(data));
+    window.location.href = "mailto:" + EMAIL + "?subject=" + subject + "&body=" + encodeURIComponent(buildBookingBody(data));
   }
 
   function wireBooking() {
