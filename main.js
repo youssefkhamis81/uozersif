@@ -3,47 +3,43 @@
 
   var WA_NUMBER = "201022632662";
   var EMAIL = "ykhamis81@gmail.com";
+  var CDN = "https://res.cloudinary.com/dp83zpjpj/image/upload/";
 
-  /**
-   * Extra portfolio files (your real filenames — not only 1.jpg, 2.jpg).
-   * Hero picks random from this + numbered files. Portrait (5), logo (6), product-cover, hero excluded below.
-   */
   var EXTRA_PORTFOLIO = [
-    "assets/4564.jpg",
-    "assets/4984.jpg",
-    "assets/DSC01231.JPG",
-    "assets/DSC01363.JPG",
-    "assets/DSC02770.jpg",
-    "assets/DSC02804.jpg",
-    "assets/DSC02810.jpg",
-    "assets/DSC02841.jpg",
-    "assets/DSC02880.jpg",
-    "assets/DSC02888.jpg",
-    "assets/DSC02896.jpg",
-    "assets/DSC03007.JPG",
-    "assets/DSC06661.JPG",
-    "assets/DSC07881.JPG",
-    "assets/DSC07889.JPG",
-    "assets/DSC07926.JPG",
-    "assets/DSC09233.JPG",
-    "assets/DSC09245.JPG",
-    "assets/DSC09961.JPG",
-    "assets/DSC09970.JPG",
-    "assets/JOO03194.jpg",
-    "assets/JOO03205.jpg",
-    "assets/JOO03590.jpg",
-    "assets/JOO03739.jpg",
-    "assets/JOO03809.jpg",
-    "assets/JOO03848.jpg",
-    "assets/JOO05245.jpg",
-    "assets/JOO05269.jpg",
-    "assets/JOO_3873.jpg",
-    "assets/JOO_3938.jpg",
-    "assets/JOO_4690.jpg",
-    "assets/JOO_4973.jpg",
+    CDN + "4564.jpg",
+    CDN + "4984.jpg",
+    CDN + "DSC01231.JPG",
+    CDN + "DSC01363.JPG",
+    CDN + "DSC02770.jpg",
+    CDN + "DSC02804.jpg",
+    CDN + "DSC02810.jpg",
+    CDN + "DSC02841.jpg",
+    CDN + "DSC02880.jpg",
+    CDN + "DSC02888.jpg",
+    CDN + "DSC02896.jpg",
+    CDN + "DSC03007.JPG",
+    CDN + "DSC06661.JPG",
+    CDN + "DSC07881.JPG",
+    CDN + "DSC07889.JPG",
+    CDN + "DSC07926.JPG",
+    CDN + "DSC09233.JPG",
+    CDN + "DSC09245.JPG",
+    CDN + "DSC09961.JPG",
+    CDN + "DSC09970.JPG",
+    CDN + "JOO03194.jpg",
+    CDN + "JOO03205.jpg",
+    CDN + "JOO03590.jpg",
+    CDN + "JOO03739.jpg",
+    CDN + "JOO03809.jpg",
+    CDN + "JOO03848.jpg",
+    CDN + "JOO05245.jpg",
+    CDN + "JOO05269.jpg",
+    CDN + "JOO_3873.jpg",
+    CDN + "JOO_3938.jpg",
+    CDN + "JOO_4690.jpg",
+    CDN + "JOO_4973.jpg",
   ];
 
-  /** Numbers 1–20 except 5 (you) and 6 (logo). */
   function portfolioIds() {
     var out = [];
     var n;
@@ -54,7 +50,6 @@
     return out;
   }
 
-  /** Try png before jpg — matches how your files are saved. */
   var EXT = ["png", "jpg", "jpeg", "webp"];
 
   function shuffle(arr) {
@@ -68,15 +63,12 @@
     return a;
   }
 
-  /** All candidate URLs for hero (random each page load). */
   function buildHeroCandidateUrls() {
     var urls = [];
-    var n;
-    var e;
-    urls.push("assets/hero.png", "assets/hero.jpg", "assets/1.png", "assets/1.jpg");
+    urls.push(CDN + "hero.png", CDN + "hero.jpg", CDN + "1.png", CDN + "1.jpg");
     portfolioIds().forEach(function (num) {
       EXT.forEach(function (ext) {
-        urls.push("assets/" + num + "." + ext);
+        urls.push(CDN + num + "." + ext);
       });
     });
     EXTRA_PORTFOLIO.forEach(function (u) {
@@ -95,10 +87,10 @@
     function tryNext() {
       if (i >= pool.length) {
         chainImageFallback(hero, [
-          "assets/hero.png",
-          "assets/1.png",
-          "assets/1.jpg",
-          "assets/product-cover.png",
+          CDN + "hero.png",
+          CDN + "1.png",
+          CDN + "1.jpg",
+          CDN + "product-cover.png",
         ]);
         return;
       }
@@ -136,26 +128,31 @@
   }
 
   var PRODUCT_URLS = [
-    "assets/product-cover.png",
-    "assets/product-cover.jpg",
-    "assets/product-cover.jpeg",
-    "assets/product-cover.webp",
+    CDN + "product-cover.png",
+    CDN + "product-cover.jpg",
+    CDN + "product-cover.jpeg",
+    CDN + "product-cover.webp",
   ];
 
-  var LOGO_URLS = ["assets/6.png", "assets/6.jpg", "assets/6.jpeg", "assets/6.webp"];
+  var LOGO_URLS = [
+    CDN + "6.png",
+    CDN + "6.jpg",
+    CDN + "6.jpeg",
+    CDN + "6.webp",
+  ];
 
   var PORTRAIT_URLS = [
-    "assets/5.JPG",
-    "assets/5.jpg",
-    "assets/5.jpeg",
-    "assets/5.png",
-    "assets/5.webp",
+    CDN + "5.JPG",
+    CDN + "5.jpg",
+    CDN + "5.jpeg",
+    CDN + "5.png",
+    CDN + "5.webp",
   ];
 
   function buildPortfolioSlots() {
     var slots = [];
     portfolioIds().forEach(function (num) {
-      var base = "assets/" + num;
+      var base = CDN + num;
       slots.push([base + ".png", base + ".jpg", base + ".jpeg", base + ".webp"]);
     });
     EXTRA_PORTFOLIO.forEach(function (path) {
@@ -270,10 +267,7 @@
   function sendWhatsApp() {
     var data = getFormData();
     var err = validateBooking(data);
-    if (err) {
-      alert(err);
-      return;
-    }
+    if (err) { alert(err); return; }
     var url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(buildBookingBody(data));
     window.open(url, "_blank", "noopener,noreferrer");
   }
@@ -281,10 +275,7 @@
   function sendEmail() {
     var data = getFormData();
     var err = validateBooking(data);
-    if (err) {
-      alert(err);
-      return;
-    }
+    if (err) { alert(err); return; }
     var subject = encodeURIComponent("Wedding booking — " + data.name);
     window.location.href =
       "mailto:" + EMAIL + "?subject=" + subject + "&body=" + encodeURIComponent(buildBookingBody(data));
