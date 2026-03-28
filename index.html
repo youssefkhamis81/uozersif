@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="uozersif Studios — Wedding photography, portfolio, POSELY pose guide, booking."
+    />
+    <title>uozersif Studios — Wedding Media</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body id="top">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="#top" aria-label="uozersif ph studio home">
+          <img class="logo-img" src="assets/6.png" alt="uozersif ph studio" width="160" height="48" />
+          <span class="logo-fallback" hidden>uozersif</span>
+        </a>
+        <nav class="nav" id="nav" aria-label="Primary">
+          <a href="#portfolio">Portfolio</a>
+          <a href="#product">POSELY</a>
+          <a href="#booking">Book</a>
+          <a href="#about">About</a>
+          <a class="nav-cta" href="#contact">Contact</a>
+        </nav>
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- 1 — Hero: random image from your pool on every page load -->
+      <section class="hero hero-stack" id="hero">
+        <div class="hero-visual">
+          <img
+            id="hero-img"
+            class="hero-bg-img"
+            src="assets/hero.png"
+            alt="Wedding photography by uozersif Studios"
+            width="1920"
+            height="1080"
+            decoding="async"
+            fetchpriority="high"
+          />
+          <div class="hero-scrim"></div>
+        </div>
+        <div class="hero-content">
+          <div class="container hero-content-inner">
+            <p class="hero-kicker">Wedding media services</p>
+            <h1 class="hero-display">
+              For couples<br />
+              <span class="hero-display-accent">in love</span>
+            </h1>
+            <p class="hero-deck">
+              At <strong>uozersif Studios</strong>, we turn your day into visual stories that last — with
+              intention, craft, and heart.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary-inv" href="#portfolio">See the work</a>
+              <a class="btn btn-ghost-light" href="#booking">Book your date</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Portfolio</span><span class="marquee-dot">·</span><span>POSELY +80 poses</span
+          ><span class="marquee-dot">·</span><span>EGP 500</span><span class="marquee-dot">·</span
+          ><span>Wedding booking</span><span class="marquee-dot">·</span>
+          <span>Portfolio</span><span class="marquee-dot">·</span><span>POSELY +80 poses</span
+          ><span class="marquee-dot">·</span><span>EGP 500</span><span class="marquee-dot">·</span
+          ><span>Wedding booking</span><span class="marquee-dot">·</span>
+        </div>
+      </div>
+
+      <!-- 2 — Portfolio -->
+      <section class="section section-portfolio" id="portfolio">
+        <div class="container">
+          <header class="portfolio-header">
+            <p class="section-tag">Portfolio</p>
+            <h2 class="section-headline">Selected work</h2>
+            <p class="portfolio-intro">Moments from real weddings — light, emotion, and the in-between.</p>
+          </header>
+          <div class="portfolio-grid" id="portfolio-grid" aria-label="Wedding photography portfolio"></div>
+        </div>
+      </section>
+
+      <!-- 3 — POSELY -->
+      <section class="section section-product" id="product">
+        <div class="container product-layout">
+          <div class="product-visual">
+            <div class="product-frame">
+              <img
+                id="product-img"
+                src="assets/product-cover.png"
+                alt="POSELY — wedding pose guide deck (+80 poses)"
+                width="640"
+                height="800"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-price-badge" aria-label="Product price">
+              <span class="product-price-label">POSELY</span>
+              <span class="product-price-amount">EGP 500</span>
+            </div>
+          </div>
+          <div class="product-copy">
+            <p class="section-tag">The guide</p>
+            <h2 class="section-headline">80+ poses. Less stress. More flow.</h2>
+            <p class="section-lead">
+              A curated deck so you never run out of ideas mid-session — clear references, more time for the
+              shots that matter.
+            </p>
+            <ul class="product-list">
+              <li>80+ fresh poses &amp; setups</li>
+              <li>Faster sessions with a ready shot list</li>
+              <li>Order or ask questions — WhatsApp or email</li>
+            </ul>
+            <div class="product-price-inline">
+              <span class="price-tag">EGP 500</span>
+              <span class="price-note">one-time</span>
+            </div>
+            <div class="product-actions">
+              <a class="btn btn-dark" href="https://wa.me/201022632662" target="_blank" rel="noopener"
+                >Order on WhatsApp</a
+              >
+              <a class="btn btn-outline-dark" href="mailto:ykhamis81@gmail.com?subject=POSELY%20order"
+                >Email to order</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 — Book wedding -->
+      <section class="section section-booking" id="booking">
+        <div class="container booking-layout">
+          <div class="booking-aside">
+            <p class="section-tag section-tag--dark">Book your wedding</p>
+            <h2 class="section-headline section-headline--light">Reserve your date</h2>
+            <p class="booking-aside-text">
+              Names, event date, and what you need — we reply on <strong>WhatsApp</strong> or
+              <strong>email</strong>.
+            </p>
+          </div>
+          <form class="booking-form" id="booking-form" novalidate>
+            <div class="field">
+              <label for="full-name">Your name</label>
+              <input id="full-name" name="name" type="text" autocomplete="name" required placeholder="Full name" />
+            </div>
+            <div class="field">
+              <label for="event-date">Event date</label>
+              <input id="event-date" name="eventDate" type="date" required />
+            </div>
+            <div class="field">
+              <label for="request">What you need</label>
+              <input
+                id="request"
+                name="request"
+                type="text"
+                required
+                placeholder="Full day coverage, session, POSELY deck…"
+              />
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Venue, timeline, details…"></textarea>
+            </div>
+            <div class="booking-actions">
+              <button type="button" class="btn btn-primary-inv" id="send-whatsapp">Send via WhatsApp</button>
+              <button type="button" class="btn btn-ghost-dark" id="send-email">Send via Email</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- 5 — About -->
+      <section class="section section-about" id="about">
+        <div class="container about-page-grid">
+          <div class="about-intro">
+            <p class="section-tag">About</p>
+            <h2 class="section-headline">Rooted in emotion &amp; light</h2>
+            <p class="section-lead">
+              I’m a wedding photographer focused on honest storytelling. Every couple deserves images that feel
+              as real as the day felt — elegant, warm, unmistakably you.
+            </p>
+            <p class="about-extra">
+              Years of weddings taught me how to help couples relax in front of the camera — so the frames
+              stay natural and unforgettable.
+            </p>
+          </div>
+          <figure class="about-portrait-frame">
+            <img
+              id="portrait-img"
+              src="assets/5.JPG"
+              alt="uozersif — wedding photographer"
+              width="600"
+              height="750"
+              loading="lazy"
+            />
+          </figure>
+          <div class="about-reel-block">
+            <p class="section-tag">On the job</p>
+            <h3 class="about-reel-title">Behind the scenes</h3>
+            <div class="reel-embed-wrap">
+              <iframe
+                class="instagram-embed"
+                src="https://www.instagram.com/reel/DTngAj7DBTE/embed/?captioned=true"
+                title="Instagram reel — uozersif at work"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
+            <p class="reel-hint">
+              Reel not loading?
+              <a href="https://www.instagram.com/reel/DTngAj7DBTE/" target="_blank" rel="noopener noreferrer"
+                >Open on Instagram</a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 — Contact -->
+      <section class="section section-contact" id="contact">
+        <div class="container contact-layout">
+          <div class="contact-header">
+            <p class="section-tag">Contact</p>
+            <h2 class="section-headline">Let’s talk</h2>
+            <p class="contact-sub">Direct lines &amp; social — reach out anywhere you prefer.</p>
+          </div>
+          <div class="contact-cards">
+            <a class="contact-card" href="https://wa.me/201022632662" target="_blank" rel="noopener">
+              <span class="contact-card-label">WhatsApp</span>
+              <span class="contact-card-value">+20 10 22632662</span>
+            </a>
+            <a class="contact-card" href="mailto:ykhamis81@gmail.com">
+              <span class="contact-card-label">Email</span>
+              <span class="contact-card-value">ykhamis81@gmail.com</span>
+            </a>
+          </div>
+          <div class="social-row" aria-label="Social media">
+            <a
+              class="social-icon"
+              href="https://www.instagram.com/uozersif/?hl=ar"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"
+                />
+              </svg>
+            </a>
+            <a
+              class="social-icon"
+              href="https://www.youtube.com/watch?v=pqT85FTv9yY"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"
+                />
+              </svg>
+            </a>
+            <a
+              class="social-icon"
+              href="https://www.facebook.com/share/p/1QXgTgmduT/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-3.03h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 3.03h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z"
+                />
+              </svg>
+            </a>
+            <a
+              class="social-icon"
+              href="https://wa.me/201022632662"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+            >
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img class="footer-logo-img" src="assets/6.png" alt="" width="120" height="36" />
+          <span class="footer-logo-fallback" hidden>uozersif</span>
+        </div>
+        <p class="footer-line">Wedding photography &amp; media · POSELY</p>
+        <p class="footer-copy">© <span id="year"></span> uozersif Studios. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
