@@ -1,5 +1,6 @@
 (function () {
   "use strict";
+  var CDN = "assets/";
 
   var WA_NUMBER = "201022632662";
   var EMAIL = "ykhamis81@gmail.com";
